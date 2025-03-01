@@ -14,7 +14,7 @@ params:
 Ce rapport analyse les données des élus en fonction de leur commune et de leur département.\
 Nous allons explorer la répartition des élus par catégorie socio-professionnelle et la distribution des âges.
 
-------------------------------------------------------------------------
+
 
 ---
 
@@ -35,7 +35,8 @@ code_commune <- as.character(params$code_commune)
 code_departement <- as.character(params$code_departement)
 
 # Charger les données
-elus_sample <- read_delim("elus_sample.csv", delim = ";", escape_double = FALSE, trim_ws = TRUE)
+elus_sample <- read_delim(here::here("elus_sample.csv"), delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
 
 # 🔹 Standardiser les noms des colonnes (remplacer les espaces par "_")
 colnames(elus_sample) <- gsub(" ", "_", colnames(elus_sample))
