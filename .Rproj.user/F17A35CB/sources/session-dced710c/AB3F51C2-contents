@@ -1,0 +1,55 @@
+---
+title: "Générer un rapport d'analyses"
+author: "Thomas Papeix"
+format: html
+vignette: >
+  %\VignetteIndexEntry{Générer un rapport d'analyses}
+  %\VignetteEngine{quarto}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(firstlibpeix)
+```
+## Introduction
+Ce document explique comment générer des rapports d’analyse des élus avec le package `firstlibpeix`. Nous allons voir comment utiliser les fonctions `summary_commune`, `summary_departement` et `generer_rapport`.
+
+---
+## 📌 Résumé d'une commune
+
+La fonction `summary_commune()` permet d’obtenir un résumé des élus d’une commune spécifique.
+
+```{r, eval=FALSE}
+library(firstlibpeix)
+
+# Charger un échantillon de données
+elus_sample <- readr::read_delim("elus_sample.csv", delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+# Filtrer pour une commune spécifique
+data_commune <- elus_sample[elus_sample$`Code de la commune` == "75056", ]
+data_commune <- creer_commune(data_commune)
+
+# Obtenir le résumé de la commune
+summary_commune(data_commune)
+
+# Filtrer pour un département spécifique
+data_departement <- elus_sample[elus_sample$`Code du département` == "75", ]
+data_departement <- creer_departement(data_departement)
+
+# Obtenir le résumé du département
+summary_departement(data_departement)
+
+# Générer un rapport pour Paris (code commune 75056, département 75)
+generer_rapport(code_commune = "75056", code_departement = "75", output = "rapport_paris.html")
+
+```
+

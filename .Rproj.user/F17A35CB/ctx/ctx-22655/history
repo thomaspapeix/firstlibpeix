@@ -1,0 +1,72 @@
+cd ~/Documents/firstlibpeix
+remotes::install_github("thomaspapeix/firstlibpeix")
+library(firstlibpeix)
+devtools::document()
+usethis::use_test("compter_nombre_d_adjoints")
+usethis::use_test("calcul_distribution_age")
+usethis::use_test("plot_code_professions")
+usethis::use_test("summary_commune")
+usethis::use_test("summary_departement")
+usethis::use_test("plot_commune")
+usethis::use_test("plot_departement")
+usethis::use_test("creer_commune")
+usethis::use_test("creer_departement")
+devtools::test()
+devtools::test()
+devtools::document()
+devtools::test()
+devtools::document()
+devtools::load_all()
+devtools::test()
+devtools::document()
+devtools::load_all()
+devtools::test()
+devtools::document()
+devtools::load_all()
+devtools::test()
+devtools::check()
+remotes::install_github("thomaspapeix/firstlibpeix")
+library(firstlibpeix)
+?compter_nombre_d_adjoints  # Vérifie que l'aide s'affiche
+devtools::document()
+devtools::load_all()
+devtools::test()
+devtools::check()
+# Aller à la racine du projet (si ce n'est pas déjà le cas)
+cd /chemin/vers/ton/projet
+getwd()
+# Créer le dossier `inst/` s'il n'existe pas
+dir.create("inst", showWarnings = FALSE)
+# Vérifier que le dossier est bien créé
+list.dirs()
+# Déplacer `rapport.qmd` dans `inst/`
+file.rename("rapport.qmd", "inst/rapport.qmd")
+# Vérifier que le fichier est bien dans `inst/`
+list.files("inst/")
+file.rename("Ravancé/rapport_quarto/rapport.qmd", "inst/rapport.qmd")
+list.files(path = ".", pattern = "rapport.qmd", recursive = TRUE, full.names = TRUE)
+getwd()
+list.files(path = "C:/Users/huawei/Documents", pattern = "rapport.qmd", recursive = TRUE, full.names = TRUE)
+file.rename("C:/Users/huawei/Documents/cours Rstudio/Rstudio/Github/Ravancé/rapport_quarto/rapport.qmd",
+"inst/rapport.qmd")
+list.files("inst/")
+# Générer la documentation
+devtools::document()
+# Charger le package pour tester
+devtools::load_all()
+# Tester la fonction
+generer_rapport(code_commune = "75056", code_departement = "75", output = "rapport_paris.html")
+rapport_path <- system.file("rapport.qmd", package = "firstlibpeix")
+# Générer la documentation mise à jour
+devtools::document()
+# Recharger le package
+devtools::load_all()
+# Tester la fonction à nouveau
+generer_rapport(code_commune = "75056", code_departement = "75", output = "rapport_paris.html")
+# Générer la documentation mise à jour
+devtools::document()
+# Recharger le package
+devtools::load_all()
+# Tester la fonction à nouveau
+generer_rapport(code_commune = "75056", code_departement = "75", output = "rapport_paris.html")
+install.packages("here")
